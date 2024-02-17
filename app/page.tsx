@@ -28,7 +28,7 @@ export default function Home() {
         <div className="col-span-1">
           <div className="">
             <div className="flex">
-            <p className="text-white italic font-semibold">"Train Hard, </p><p className="text-[#F1C524] italic font-semibold"> Fight Easy"</p>
+            <p className="text-white italic font-semibold">Train Hard, </p><p className="text-[#F1C524] italic font-semibold"> Fight Easy</p>
             </div>
           
           <p className="text-sm text-white">- Abraham Lincoln</p>
