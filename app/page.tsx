@@ -6,6 +6,7 @@ import GreekGod from '../public/background.png';
 
 import Fitness from '@/components/fitness';
 import Trading from '@/components/trading';
+import Nutrition from '@/components/nutrition';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('home');
@@ -29,10 +30,10 @@ export default function Home() {
         <div className="col-span-1">
           <div className="">
             <div className="flex">
-            <p className="text-white italic font-semibold">Train Hard, </p><p className="text-[#F1C524] italic font-semibold"> Fight Easy</p>
+            <p className="text-white italic font-semibold">&quot;Train Hard, </p><p className="text-[#F1C524] italic font-semibold">Fight Easy&quot;</p>
             </div>
           
-          <p className="text-sm text-white">- Abraham Lincoln</p>
+          <p className="text-xs text-white">- Abraham Lincoln</p>
           </div>
          
         </div>
@@ -74,7 +75,7 @@ export default function Home() {
              </div>
           )}
           {activeTab === 'nutrition' && (
-            <p className="text-white">Nutrition Content</p>
+            <Nutrition />
           )}
         </div>
       </div>
