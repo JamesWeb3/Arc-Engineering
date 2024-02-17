@@ -5,6 +5,7 @@ import Image from 'next/image';
 import GreekGod from '../public/background.png';
 
 import Fitness from '@/components/fitness';
+import Trading from '@/components/trading';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('home');
@@ -41,13 +42,13 @@ export default function Home() {
 
         <div className="flex justify-left p-4 gap-8">
         <button className={`text-white ${activeTab === 'home' ? 'text-[#F1C524]' : ''}`} onClick={() => handleTabClick('home')}>Home</button>
-        <button className={`text-white ${activeTab === 'bank' ? 'text-[#F1C524]' : ''}`} onClick={() => handleTabClick('bank')}>Bank</button>
+        <button className={`text-white ${activeTab === 'bank' ? 'text-[#F1C524]' : ''}`} onClick={() => handleTabClick('trading')}>Trading</button>
         <button className={`text-white ${activeTab === 'fitness' ? 'text-[#F1C524]' : ''}`} onClick={() => handleTabClick('fitness')}>Fitness</button>
         <button className={`text-white ${activeTab === 'nutrition' ? 'text-[#F1C524]' : ''}`} onClick={() => handleTabClick('nutrition')}>Nutrition</button>
       </div>
 
         {activeTab === 'home' && (
-            <div className="flex flex-col bg-red-500 h-full justify-center gap-12">
+            <div className="flex flex-col h-full justify-center gap-12">
               <h1 className="text-white text-7xl">{greeting}</h1>
               <p className="text-white">Google Calendar Goes here</p>
               <div className="flex justify-between w-full">
@@ -62,13 +63,13 @@ export default function Home() {
               </div>
             </div>
           )}
-          {activeTab === 'bank' && (
-             <div className="flex flex-col bg-red-500 h-full justify-center gap-12">
-             
+          {activeTab === 'trading' && (
+             <div className="flex flex-col h-full justify-center gap-12">
+             <Trading/>
            </div>
           )}
           {activeTab === 'fitness' && (
-             <div className="flex flex-col bg-red-500 h-full justify-center gap-12">
+             <div className="flex flex-col h-full justify-center gap-12">
              <Fitness />
              </div>
           )}

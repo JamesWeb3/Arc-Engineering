@@ -12,6 +12,8 @@ import {
   import { Bar } from 'react-chartjs-2';
   import { faker } from '@faker-js/faker';
 
+  const randomNum = faker.number.int();
+
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -41,12 +43,12 @@ import {
     datasets: [
       {
         label: 'Dataset 1',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        data: labels.map(() => faker.number.int({ min: 0, max: 1000 })),
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
         label: 'Dataset 2',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        data: labels.map(() => faker.number.int({ min: 0, max: 1000 })),
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
     ],
@@ -71,7 +73,7 @@ export default function Fitness() {
   const allButtonsClicked = buttonStates.every(state => state);
 
   return (
-    <div className="flex flex-col bg-red-500 h-full justify-center items-center gap-12 p-12">
+    <div className="flex flex-col h-full justify-center items-center gap-12 p-12">
       {/* Gym and Running Buttons */}
       <div className="flex gap-4 flex-wrap">
 
