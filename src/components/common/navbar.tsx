@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/common/theme-toggle'
-import { IconMicrophone } from '@/components/icons'
 import Notes from '@/components/common/notes'
 import VoiceComponent from '@/components/common/voice'
 

@@ -4,7 +4,7 @@ import Navbar from '@/components/common/navbar'
 import HomePage from '@/components/core/home'
 import Fitness from '@/components/fitness'
 import Trading from '@/components/core/trading'
-import Nutrition from '@/components/nutrition'
+import Nutrition from '@/components/core/nutrition'
 import Quote from '@/components/common/quote'
 
 export default function DefaultLayout() {
