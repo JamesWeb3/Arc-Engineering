@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
 const CalendarView = () => {
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([])
 
   useEffect(() => {
     fetch('/api/calendar')
-      .then(response => response.json())
-      .then(data => setEvents(data));
-  }, []);
+      .then((response) => response.json())
+      .then((data) => setEvents(data))
+  }, [])
 
-  return (
-    <div>
-      
-    </div>
-  );
-};
+  return <div></div>
+}
 
-export default CalendarView;
+export default CalendarView
