@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
@@ -11,28 +10,44 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog'
 import { IconNotes } from '@/components/icons'
+import { Textarea } from '@/components/ui/textarea'
 
 const Notes: React.FC = ({}) => {
+  const [noteContent, setNoteContent] = useState('')
+
+  useEffect(() => {
+    const savedNotes = localStorage.getItem('notesContent')
+    if (savedNotes) {
+      setNoteContent(savedNotes)
+    }
+  }, [])
+
+  const handleSave = () => {
+    localStorage.setItem('notesContent', noteContent)
+  }
+
   return (
     <div>
       <AlertDialog>
         <AlertDialogTrigger>
-          <div className="rounded-full flex border p-2 cursor-pointer">
+          <div className="rounded-full flex border p-2 cursor-pointer hover:bg-muted/90">
             <IconNotes />
           </div>
         </AlertDialogTrigger>
 
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+            <AlertDialogTitle>Notes</AlertDialogTitle>
             <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
+              <Textarea
+                className="min-h-[400px] max-h-[700px]"
+                value={noteContent}
+                onChange={(e) => setNoteContent(e.target.value)}
+              />
             </AlertDialogDescription>
           </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
+          <AlertDialogFooter className="mt-4">
+            <AlertDialogCancel onClick={handleSave}>Save</AlertDialogCancel>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

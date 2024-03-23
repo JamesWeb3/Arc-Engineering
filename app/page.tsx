@@ -7,11 +7,9 @@ import Fitness from '@/components/fitness'
 import Trading from '@/components/trading'
 import Nutrition from '@/components/nutrition'
 import Quote from '@/components/common/quote'
-import { CircularSpinner } from '@/components/common/circular-spinner'
 
 export default function Home() {
   const [activePage, setActivePage] = useState('home')
-  const [isLoading, setIsLoading] = useState(true)
 
   return (
     <main className="flex flex-col h-screen px-12 py-4">
