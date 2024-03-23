@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/common/theme-toggle'
-import { IconNotes, IconMicrophone } from '@/components/icons'
+import { IconMicrophone } from '@/components/icons'
+import Notes from '@/components/common/notes'
 
 interface NavbarProps {
   setActivePage: (page: string) => void
@@ -44,9 +45,7 @@ const Navbar: React.FC<NavbarProps> = ({ setActivePage }) => {
           </Link>
         </div>
 
-        <div className="rounded-full flex border p-2 cursor-pointer">
-          <IconNotes />
-        </div>
+        <Notes />
 
         <div className="bg-muted rounded-full flex items-center p-2 cursor-pointer">
           <IconMicrophone />

@@ -11,9 +11,7 @@ function IconMoon({ className, ...props }: React.ComponentProps<'svg'>) {
       fill="none"
       {...props}
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
       className="lucide lucide-moon"
     >
       <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
@@ -31,9 +29,7 @@ function IconSun({ className, ...props }: React.ComponentProps<'svg'>) {
       fill="none"
       {...props}
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
       className="lucide lucide-sun"
     >
       <circle cx="12" cy="12" r="4" />
@@ -59,9 +55,7 @@ function IconMicrophone({ className, ...props }: React.ComponentProps<'svg'>) {
       fill="none"
       {...props}
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
       className="lucide lucide-mic"
     >
       <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
@@ -81,9 +75,9 @@ function IconNotes({ className, ...props }: React.ComponentProps<'svg'>) {
       fill="none"
       {...props}
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className="lucide lucide-notebook-pen"
     >
       <path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" />
