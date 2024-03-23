@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ThemeToggle } from '@/components/common/theme-toggle'
 import { IconMicrophone } from '@/components/icons'
 import Notes from '@/components/common/notes'
+import VoiceComponent from '@/components/common/voice'
 
 interface NavbarProps {
   setActivePage: (page: string) => void
@@ -47,9 +48,7 @@ const Navbar: React.FC<NavbarProps> = ({ setActivePage }) => {
 
         <Notes />
 
-        <div className="bg-muted rounded-full flex items-center p-2 cursor-pointer">
-          <IconMicrophone />
-        </div>
+        <VoiceComponent />
       </div>
     </nav>
   )

@@ -1,14 +1,13 @@
 'use client'
-import React, { useState, useEffect } from 'react'
-import GreekGod from '../public/background.png'
+import React, { useState } from 'react'
 import Navbar from '@/components/common/navbar'
 import HomePage from '@/components/core/home'
 import Fitness from '@/components/fitness'
-import Trading from '@/components/trading'
+import Trading from '@/components/core/trading'
 import Nutrition from '@/components/nutrition'
 import Quote from '@/components/common/quote'
 
-export default function Home() {
+export default function DefaultLayout() {
   const [activePage, setActivePage] = useState('home')
 
   return (
