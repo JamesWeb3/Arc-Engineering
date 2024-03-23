@@ -42,11 +42,28 @@ const VoiceComponent = () => {
     };
 
     const sendTranscriptToMake = async (transcript) => {
-        
-    };
+        try {
+          const response = await fetch('/api/transcript', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ transcript }),
+          });
+      
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          } else {
+            console.log("Transcript sent successfully to Make.com");
+            const data = await response.json();
+          }
+        } catch (error) {
+          console.error("Failed to send transcript to Make.com", error);
+        }
+      };
 
     return (
-        <div onClick={toggleListening} className={`relative bg-muted rounded-full flex items-center p-2 border-2 cursor-pointer ${isListening ? 'border-red-500 border-2' : ''}`}>
+        <div onClick={toggleListening} className={`relative bg-muted border-red-500 rounded-full flex items-center p-2 border-2 cursor-pointer ${isListening ? 'border-red-500 border-2' : ''}`}>
             <IconMicrophone />
         </div>
     );
