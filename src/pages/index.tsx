@@ -7,6 +7,7 @@ import Nutrition from '@/components/core/nutrition'
 import Quote from '@/components/common/quote'
 import Image from 'next/image'
 import Bank from '@/components/core/bank'
+import TradingLog from '@/components/common/trading-log'
 
 export default function DefaultLayout() {
   const [activePage, setActivePage] = useState('home')
@@ -29,6 +30,10 @@ export default function DefaultLayout() {
         </div>
       </div>
       <Quote />
+      <div className="absolute bottom-10 right-10">
+        <TradingLog />
+      </div>
+      
     </main>
   )
 }

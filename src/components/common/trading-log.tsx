@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -18,6 +18,11 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { IconOpen } from '@/components/icons'
+import { Input } from '../ui/input'
+import { Button } from '../ui/button'
+import { Separator } from '../ui/separator'
+import { Toast } from '@/components/ui/toast'
+import { useToast } from '@/components/ui/use-toast'
 
 const trades = [
   {
@@ -37,12 +42,44 @@ const trades = [
   },
 ]
 
-
-const toggleEdit = () => {
-  console.log('edit')
-}
-
 const TradingLog: React.FC = ({}) => {
+  const toast = useToast();
+
+  const [willingToLose, setWillingToLose] = useState('60');
+  const [stopLossPercentage, setStopLossPercentage] = useState('');
+  const [orderValue, setOrderValue] = useState('');
+  const [lotValue, setLotValue] = useState('');
+  
+  const toggleEdit = () => {
+    console.log('edit')
+  }
+
+  const handleCalculate = () => {
+    const result = parseFloat(willingToLose) / (parseFloat(stopLossPercentage) / 100);
+    if (!isNaN(result)) {
+      setOrderValue(result.toFixed(1)); 
+      setLotValue((result / 100000).toFixed(2)); 
+    } else {
+      setOrderValue('Invalid input');
+      setLotValue('Invalid input'); 
+    }
+  };
+
+  const copyToClipboard = async (text: any) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      console.log('Copied to clipboard');
+      toast.toast({
+        title: "Update Organization",
+        description: "Organization updated successfully",
+    });
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+      
+    }
+  };
+
+
   return (
     <div>
       <AlertDialog>
@@ -55,6 +92,50 @@ const TradingLog: React.FC = ({}) => {
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Trading Log</AlertDialogTitle>
+            <div className="flex gap-6 items-center">
+            <Input className="cursor-pointer" onChange={(e) => setWillingToLose(e.target.value)} value={willingToLose} type="number" placeholder="Willing to Lose (80)" />
+            /
+            <Input
+        type="number"
+        placeholder="Stop Loss % (0.035)"
+        value={stopLossPercentage}
+        className="cursor-pointer"
+        onChange={(e) => setStopLossPercentage(e.target.value)}
+      />
+            =
+            <div className="flex flex-col w-full mb-4">
+              <div className="flex align-left text-sm justify-between">
+                <p>Position</p>
+                <p>Lot</p>
+                </div>
+                <div className="flex gap-4">
+            <Input
+              type="text" 
+              placeholder="Order Value"
+              className="cursor-pointer"
+              value={orderValue}
+              readOnly
+              onClick={() => copyToClipboard(orderValue)}
+            />
+            <Input
+              type="text" 
+              className="cursor-pointer"
+              placeholder="Order Value"
+              value={lotValue}
+              readOnly
+              onClick={() => copyToClipboard(lotValue)}
+            />
+            </div>
+            
+
+
+            </div>
+                  
+            <Button onClick={handleCalculate}>Calculate</Button>
+            </div>
+
+            <Separator/>
+            
             <AlertDialogDescription>
               <Table>
                 <TableHeader>
