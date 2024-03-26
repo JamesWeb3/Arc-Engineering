@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -17,34 +17,25 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { IconOpen } from '@/components/icons'
+import { IconOpen, IconTrash } from '@/components/icons'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { Separator } from '../ui/separator'
 import { Toast } from '@/components/ui/toast'
 import { useToast } from '@/components/ui/use-toast'
 
-const trades = [
-  {
-    symbol: 'BTCUSD',
-    pnl: '+300',
-    notes: 'Good trade, good setup',
-  },
-  {
-    symbol: 'BTCUSD',
-    pnl: '+300',
-    notes: 'Good trade, good setup',
-  },
-  {
-    symbol: 'BTCUSD',
-    pnl: '+300',
-    notes: 'Good trade, good setup',
-  },
-]
+interface Trade {
+  id: number;
+  symbol: string;
+  pnl: number;
+  notes: string;
+}
+
+const TRADING_LOG_KEY = 'tradingLog';
 
 const TradingLog: React.FC = ({}) => {
   const toast = useToast();
-
+  const [trades, setTrades] = useState<Trade[]>([]);
   const [willingToLose, setWillingToLose] = useState('60');
   const [stopLossPercentage, setStopLossPercentage] = useState('');
   const [orderValue, setOrderValue] = useState('');
@@ -53,6 +44,11 @@ const TradingLog: React.FC = ({}) => {
   const toggleEdit = () => {
     console.log('edit')
   }
+
+  useEffect(() => {
+    const loadedTrades: Trade[] = JSON.parse(localStorage.getItem(TRADING_LOG_KEY) || '[]');
+    setTrades(loadedTrades);
+  }, []);
 
   const handleCalculate = () => {
     const result = parseFloat(willingToLose) / (parseFloat(stopLossPercentage) / 100);
@@ -79,6 +75,14 @@ const TradingLog: React.FC = ({}) => {
     }
   };
 
+  const handleDeleteTrade = (tradeId: number) => {
+    setTrades(trades.filter(trade => trade.id !== tradeId));
+  };
+
+  const handleAddTrade = (newTrade: Trade) => {
+    setTrades([...trades, { ...newTrade, id: Date.now() }]);
+  };
+
 
   return (
     <div>
@@ -89,7 +93,7 @@ const TradingLog: React.FC = ({}) => {
             <IconOpen />
           </div>
         </AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogContent className="max-h-[700px] overflow-auto">
           <AlertDialogHeader>
             <AlertDialogTitle>Trading Log</AlertDialogTitle>
             <div className="flex gap-6 items-center">
@@ -120,15 +124,13 @@ const TradingLog: React.FC = ({}) => {
             <Input
               type="text" 
               className="cursor-pointer"
-              placeholder="Order Value"
+              placeholder="Lot Value"
               value={lotValue}
               readOnly
               onClick={() => copyToClipboard(lotValue)}
             />
             </div>
-            
-
-
+          
             </div>
                   
             <Button onClick={handleCalculate}>Calculate</Button>
@@ -143,6 +145,7 @@ const TradingLog: React.FC = ({}) => {
                     <TableHead className="w-[100px]">Symbol</TableHead>
                     <TableHead className="w-[100px]">PnL</TableHead>
                     <TableHead>Notes</TableHead>
+                    <TableHead>Delete</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -153,13 +156,20 @@ const TradingLog: React.FC = ({}) => {
                       </TableCell>
                       <TableCell>{trade.pnl}</TableCell>
                       <TableCell>{trade.notes}</TableCell>
+                       <TableCell onClick={(e) => {
+          e.stopPropagation(); 
+          handleDeleteTrade(trade.id);
+        }}>
+          <div className="hover:cursor-pointer hover:text-blue-500">
+          <IconTrash/>
+          </div>
+          
+        </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
-              <div className="w-full bg-muted/50 justify-center flex py-1 rounded-lg mt-2">
-                Add new cell
-              </div>
+              <div onClick={() => handleAddTrade(trades[0])} className="w-full bg-muted/50 justify-center flex py-1 rounded-lg hover:bg-muted/70 cursor-pointer mt-2">+ Add  Trade</div>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter className="mt-4">
