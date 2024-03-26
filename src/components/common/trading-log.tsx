@@ -17,11 +17,10 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { IconOpen, IconTrash } from '@/components/icons'
+import { IconOpen, IconTrash, IconPencil, IconSave, IconCopy } from '@/components/icons'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { Separator } from '../ui/separator'
-import { Toast } from '@/components/ui/toast'
 import { useToast } from '@/components/ui/use-toast'
 
 interface Trade {
@@ -34,21 +33,22 @@ interface Trade {
 const TRADING_LOG_KEY = 'tradingLog';
 
 const TradingLog: React.FC = ({}) => {
-  const toast = useToast();
+  const { toast } = useToast()
   const [trades, setTrades] = useState<Trade[]>([]);
   const [willingToLose, setWillingToLose] = useState('60');
   const [stopLossPercentage, setStopLossPercentage] = useState('');
   const [orderValue, setOrderValue] = useState('');
   const [lotValue, setLotValue] = useState('');
-  
-  const toggleEdit = () => {
-    console.log('edit')
-  }
+  const [editMode, setEditMode] = useState<boolean | number>(false);
 
   useEffect(() => {
     const loadedTrades: Trade[] = JSON.parse(localStorage.getItem(TRADING_LOG_KEY) || '[]');
     setTrades(loadedTrades);
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem(TRADING_LOG_KEY, JSON.stringify(trades));
+  }, [trades]);
 
   const handleCalculate = () => {
     const result = parseFloat(willingToLose) / (parseFloat(stopLossPercentage) / 100);
@@ -64,10 +64,8 @@ const TradingLog: React.FC = ({}) => {
   const copyToClipboard = async (text: any) => {
     try {
       await navigator.clipboard.writeText(text);
-      console.log('Copied to clipboard');
-      toast.toast({
-        title: "Update Organization",
-        description: "Organization updated successfully",
+      toast({
+        title: "Copied to Clipboard",
     });
     } catch (err) {
       console.error('Failed to copy: ', err);
@@ -77,10 +75,34 @@ const TradingLog: React.FC = ({}) => {
 
   const handleDeleteTrade = (tradeId: number) => {
     setTrades(trades.filter(trade => trade.id !== tradeId));
+    toast({
+      title: "Trade Deleted",
+  });
   };
 
   const handleAddTrade = (newTrade: Trade) => {
     setTrades([...trades, { ...newTrade, id: Date.now() }]);
+  };
+
+  const handleTradeChange = (tradeId: number, field: keyof Trade, value: any) => {
+    setTrades(trades.map(trade => {
+      if (trade.id === tradeId) {
+        return { ...trade, [field]: value };
+      }
+      return trade;
+    }));
+  };
+
+  const toggleEditMode = (tradeId: number) => {
+    setEditMode(editMode === tradeId ? false : tradeId); 
+  };
+
+  const handleSaveTrades = () => {
+    localStorage.setItem(TRADING_LOG_KEY, JSON.stringify(trades));
+    setEditMode(false);
+    toast({
+      title: "Trade Saved",
+  });
   };
 
 
@@ -145,35 +167,59 @@ const TradingLog: React.FC = ({}) => {
                     <TableHead className="w-[100px]">Symbol</TableHead>
                     <TableHead className="w-[100px]">PnL</TableHead>
                     <TableHead>Notes</TableHead>
-                    <TableHead>Delete</TableHead>
+                    <TableHead className="w-[100px]">Edit</TableHead>
+                    <TableHead className="w-[100px]">Delete</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {trades.map((trade) => (
-                    <TableRow key={trade.symbol} onClick={toggleEdit} className="hover:bg-red-100">
+                    <TableRow key={trade.id} className="hover:bg-red-100">
                       <TableCell className="font-medium">
-                        {trade.symbol}
+                      {editMode === trade.id ? (
+                      <Input value={trade.symbol} onChange={(e) => handleTradeChange(trade.id, 'symbol', e.target.value)} />
+                    ) : (
+                      trade.symbol
+                    )}
                       </TableCell>
-                      <TableCell>{trade.pnl}</TableCell>
-                      <TableCell>{trade.notes}</TableCell>
+                      <TableCell>{editMode === trade.id ? (
+                        <Input type="number" value={trade.pnl} onChange={(e) => handleTradeChange(trade.id, 'pnl', Number(e.target.value))} />
+                      ) : (
+                        trade.pnl
+                      )}</TableCell>
+                      <TableCell>{editMode === trade.id ? (
+                        <Input value={trade.notes} onChange={(e) => handleTradeChange(trade.id, 'notes', e.target.value)} />
+                      ) : (
+                        trade.notes
+                      )}</TableCell>
+                      <TableCell onClick={() => toggleEditMode(trade.id)}><div className="hover:cursor-pointer hover:text-blue-500">{editMode === trade.id ? (
+                      <IconSave/>
+                    ) : (
+                      <IconPencil/>
+                    )}</div></TableCell>
                        <TableCell onClick={(e) => {
           e.stopPropagation(); 
           handleDeleteTrade(trade.id);
         }}>
-          <div className="hover:cursor-pointer hover:text-blue-500">
+          <div className="hover:cursor-pointer hover:text-red">
           <IconTrash/>
           </div>
           
         </TableCell>
                     </TableRow>
+                    
                   ))}
+                  <TableRow className="flex-end">
+                    <TableCell>Total</TableCell>
+                    <TableCell>$$</TableCell>
+                      </TableRow>
                 </TableBody>
               </Table>
               <div onClick={() => handleAddTrade(trades[0])} className="w-full bg-muted/50 justify-center flex py-1 rounded-lg hover:bg-muted/70 cursor-pointer mt-2">+ Add  Trade</div>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter className="mt-4">
-            <AlertDialogCancel>Save</AlertDialogCancel>
+            <Button onClick={handleSaveTrades} className="mr-2">Save</Button>
+            <AlertDialogCancel>Close</AlertDialogCancel>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

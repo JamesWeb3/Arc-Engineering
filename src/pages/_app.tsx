@@ -3,6 +3,7 @@ import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Toaster } from "@/components/ui/toaster";
 
 export const inter = Inter({ subsets: ['latin'] })
 
@@ -64,6 +65,7 @@ function MyApp({
                         <link rel="manifest" href="/manifest.json" />
       </Head>
       <Component {...pageProps} />
+      <Toaster />
       </ThemeProvider>
   </>
   )
