@@ -20,15 +20,12 @@ const TradingCalculator: React.FC = () => {
   const [lotValue, setLotValue] = useState('')
 
   const handleCalculate = () => {
-    // Assuming a fixed pip value for simplification, adjust based on your needs
-    const pipValue = 0.1 // This is an example value, adjust based on the trading pair
-    const stopLossInPrice = (parseFloat(stopLossPercentage) / 100) * pipValue // Simplified, adjust for actual calculation
+    const pipValue = 0.1 
+    const stopLossInPrice = (parseFloat(stopLossPercentage) / 100) * pipValue 
     const positionSize = Number(willingToLose) / stopLossInPrice
 
     setOrderValue(positionSize.toFixed(2))
-    // For lot value calculation, you'll need additional info, e.g., lot size per pip
-    // This is a placeholder calculation
-    const lotSizePerPip = 10000 // Example value
+    const lotSizePerPip = 10000 
     setLotValue((positionSize / lotSizePerPip).toFixed(2))
   }
 
@@ -47,16 +44,16 @@ const TradingCalculator: React.FC = () => {
     <div>
       <div className="flex gap-6 items-center">
         <Select>
-          <SelectTrigger className="w-[350px] cursor-pointer">
-            <SelectValue placeholder="XAUUSD" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup onChange={(e) => setTradingPair(e.target.value)}>
-              <SelectItem value="XAUUSD">XAUUSD</SelectItem>
-              <SelectItem value="BTCUSD">BTCUSD</SelectItem>
-              <SelectItem value="DJ30">DJ30</SelectItem>
-            </SelectGroup>
-          </SelectContent>
+            <SelectTrigger className="w-[350px] cursor-pointer">
+                <SelectValue placeholder="XAUUSD" />
+            </SelectTrigger>
+            <SelectContent>
+                <SelectGroup onChange={(event) => setTradingPair((event.target as HTMLSelectElement).value)}>
+                    <SelectItem value="XAUUSD">XAUUSD</SelectItem>
+                    <SelectItem value="BTCUSD">BTCUSD</SelectItem>
+                    <SelectItem value="DJ30">DJ30</SelectItem>
+                </SelectGroup>
+            </SelectContent>
         </Select>
         /
         <Input
