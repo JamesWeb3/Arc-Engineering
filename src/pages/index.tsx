@@ -18,7 +18,12 @@ export default function DefaultLayout() {
       <div className="flex-grow grid grid-cols-2">
         <div>
           <Image
-            src="/statue.png" width={700} height={500} alt={'Image'} className="absolute bottom-0 left-0 z-[-5]"    />
+            src="/statue.png"
+            width={700}
+            height={500}
+            alt={'Image'}
+            className="absolute bottom-0 left-0 z-[-5]"
+          />
         </div>
         <div>
           <>
@@ -33,7 +38,6 @@ export default function DefaultLayout() {
       <div className="absolute bottom-10 right-10">
         <TradingLog />
       </div>
-      
     </main>
   )
 }

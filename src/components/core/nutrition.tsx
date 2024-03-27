@@ -5,8 +5,6 @@ export default function Nutrition(): JSX.Element {
     <div>
       <ol className="text-background">
         <li>Protein</li>
-
-        
       </ol>
     </div>
   )

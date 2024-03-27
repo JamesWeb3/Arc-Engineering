@@ -1,4 +1,4 @@
-import { DonutChart, Legend } from '@tremor/react';
+import { DonutChart, Legend } from '@tremor/react'
 
 const sales = [
   {
@@ -21,10 +21,10 @@ const sales = [
     name: 'Singapore',
     sales: 190,
   },
-];
+]
 
 const valueFormatter = (number: number) =>
-  `$ ${Intl.NumberFormat('us').format(number).toString()}`;
+  `$ ${Intl.NumberFormat('us').format(number).toString()}`
 
 export function DonutChartUsageExample() {
   return (
@@ -39,11 +39,17 @@ export function DonutChartUsageExample() {
           className="w-40"
         />
         <Legend
-          categories={['New York', 'London', 'Hong Kong', 'San Francisco', 'Singapore']}
+          categories={[
+            'New York',
+            'London',
+            'Hong Kong',
+            'San Francisco',
+            'Singapore',
+          ]}
           colors={['blue', 'cyan', 'indigo', 'violet', 'fuchsia']}
           className="max-w-xs"
         />
       </div>
     </>
-  );
+  )
 }

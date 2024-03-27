@@ -7,11 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write 'components/**/*.tsx' 'app/**/*.tsx' 'app/**/*.tsx'"
+    "format": "prettier --write 'src/**/*.tsx'"
   },
   "dependencies": {
     "@faker-js/faker": "^8.3.1",
     "@radix-ui/react-alert-dialog": "^1.0.5",
+    "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tabs": "^1.0.4",
