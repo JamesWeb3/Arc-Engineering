@@ -37,6 +37,7 @@ import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { Separator } from '../ui/separator'
 import { useToast } from '@/components/ui/use-toast'
+import TradingCalculator from './trading-calculator'
 
 interface Trade {
   id: number
@@ -142,54 +143,7 @@ const TradingLog: React.FC = ({}) => {
         <AlertDialogContent className="max-h-[700px] overflow-auto">
           <AlertDialogHeader>
             <AlertDialogTitle>Trading Log</AlertDialogTitle>
-            <div className="flex gap-6 items-center">
-              <Select>
-                <SelectTrigger className="w-[350px] cursor-pointer">
-                  <SelectValue placeholder="XAUUSD" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup onChange={(e) => setTradingPair(e.target.value)}>
-                    <SelectItem value="XAUUSD">XAUUSD</SelectItem>
-                    <SelectItem value="BTCUSD">BTCUSD</SelectItem>
-                    <SelectItem value="DJ30">DJ30</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-              /
-              <Input
-                type="string"
-                placeholder="Stop Loss % (0.035)"
-                value={stopLossPercentage}
-                className="cursor-pointer"
-                onChange={(e) => setStopLossPercentage(e.target.value)}
-              />
-              =
-              <div className="flex flex-col w-full mb-4">
-                <div className="flex align-left text-sm justify-between">
-                  <p>Position</p>
-                  <p>Lot</p>
-                </div>
-                <div className="flex gap-4">
-                  <Input
-                    type="text"
-                    placeholder="Order Value"
-                    className="cursor-pointer"
-                    value={orderValue}
-                    readOnly
-                    onClick={() => copyToClipboard(orderValue)}
-                  />
-                  <Input
-                    type="text"
-                    className="cursor-pointer"
-                    placeholder="Lot Value"
-                    value={lotValue}
-                    readOnly
-                    onClick={() => copyToClipboard(lotValue)}
-                  />
-                </div>
-              </div>
-              <Button onClick={handleCalculate}>Calculate</Button>
-            </div>
+            <TradingCalculator/>
 
             <Separator />
 

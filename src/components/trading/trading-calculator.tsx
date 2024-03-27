@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Input } from '../ui/input'
+import { Input } from '@/components/ui/input'
 import { useToast } from '@/components/ui/use-toast'
 import {
   Select,
@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/button'
 
 const TradingCalculator: React.FC = () => {
   const { toast } = useToast()
@@ -18,6 +18,11 @@ const TradingCalculator: React.FC = () => {
   const [tradingPair, setTradingPair] = useState('')
   const [orderValue, setOrderValue] = useState('')
   const [lotValue, setLotValue] = useState('')
+
+  const isCrypto = (pair: string) => {
+    return ['BTCUSD'].includes(pair);
+  };
+
 
   const handleCalculate = () => {
     const pipValue = 0.1 
@@ -41,52 +46,52 @@ const TradingCalculator: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className="py-4">
       <div className="flex gap-6 items-center">
-        <Select>
+        <Select onValueChange={(value) => {
+                                    setTradingPair(value)
+                                }}>
             <SelectTrigger className="w-[350px] cursor-pointer">
-                <SelectValue placeholder="XAUUSD" />
+                <SelectValue placeholder="XAUUSD"/>
             </SelectTrigger>
             <SelectContent>
-                <SelectGroup onChange={(event) => setTradingPair((event.target as HTMLSelectElement).value)}>
+            <SelectGroup >
                     <SelectItem value="XAUUSD">XAUUSD</SelectItem>
                     <SelectItem value="BTCUSD">BTCUSD</SelectItem>
                     <SelectItem value="DJ30">DJ30</SelectItem>
+                    <SelectItem value="CL-OIL">CL-OIL</SelectItem>
                 </SelectGroup>
             </SelectContent>
         </Select>
         /
         <Input
           type="string"
-          placeholder="Stop Loss % (0.035)"
+          placeholder="SL"
           value={stopLossPercentage}
           className="cursor-pointer"
           onChange={(e) => setStopLossPercentage(e.target.value)}
         />
         =
-        <div className="flex flex-col w-full mb-4">
-          <div className="flex align-left text-sm justify-between">
-            <p>Position</p>
-            <p>Lot</p>
-          </div>
-          <div className="flex gap-4">
-            <Input
-              type="text"
-              placeholder="Order Value"
-              className="cursor-pointer"
-              value={orderValue}
-              readOnly
-              onClick={() => copyToClipboard(orderValue)}
-            />
-            <Input
-              type="text"
-              className="cursor-pointer"
-              placeholder="Lot Value"
-              value={lotValue}
-              readOnly
-              onClick={() => copyToClipboard(lotValue)}
-            />
-          </div>
+        <div className="flex flex-col w-full">
+        {isCrypto(tradingPair) ? (
+              <Input
+                type="text"
+                placeholder="Order Value"
+                className="cursor-pointer"
+                value={orderValue}
+                readOnly
+                onClick={() => copyToClipboard(orderValue)}
+              />
+            ) : (
+              <Input
+                type="text"
+                className="cursor-pointer"
+                placeholder="Lot Value"
+                value={lotValue}
+                readOnly
+                onClick={() => copyToClipboard(lotValue)}
+              />
+            )}
         </div>
         <Button onClick={handleCalculate}>Calculate</Button>
       </div>
