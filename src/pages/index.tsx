@@ -1,43 +1,36 @@
 'use client'
-import React, { useState } from 'react'
-import Navbar from '@/components/common/navbar'
-import HomePage from '@/components/core/home'
-import Trading from '@/components/core/trading'
-import Nutrition from '@/components/core/nutrition'
-import Quote from '@/components/common/quote'
-import Image from 'next/image'
-import Bank from '@/components/core/bank'
-import TradingLog from '@/components/trading/trading-log'
+import React from 'react'
+import { Lexend } from 'next/font/google'
+import NavComponent from '@/components/nav-component'
+import HeroComponent from '@/components/hero-component'
+import NumberTickerComponent from '@/components/number-counter'
+import CardComponent from '@/components/card-component'
+import IntegrationComponent from '@/components/integration-component'
+import ContactComponent from '@/components/contact-component'
+import GetStartedComponent from '@/components/get-started-component'
+
+const lexend = Lexend({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export default function DefaultLayout() {
-  const [activePage, setActivePage] = useState('home')
-
   return (
-    <main className="flex flex-col h-screen px-6 py-6">
-      <Navbar setActivePage={setActivePage} />
-      <div className="flex-grow grid grid-cols-2">
-        <div>
-          <Image
-            src="/statue.png"
-            width={700}
-            height={500}
-            alt={'Image'}
-            className="absolute bottom-0 left-0 z-[-5]"
-          />
-        </div>
-        <div>
-          <>
-            {activePage === 'home' && <HomePage />}
-            {activePage === 'trading' && <Trading />}
-            {activePage === 'bank' && <Bank />}
-            {activePage === 'nutrition' && <Nutrition />}
-          </>
-        </div>
-      </div>
-      <Quote />
-      <div className="absolute bottom-10 right-10">
-        <TradingLog />
-      </div>
+    <main
+      className={`flex flex-col gap-24 px-6 py-6 bg-[#08070B] ${lexend.className}`}
+    >
+      <NavComponent/>
+      <HeroComponent />
+
+      <NumberTickerComponent />
+      <CardComponent />
+
+      <IntegrationComponent />
+
+      <ContactComponent/>
+
+      <GetStartedComponent />
     </main>
   )
 }

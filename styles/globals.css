@@ -70,9 +70,15 @@
  
 @layer base {
   * {
-    @apply border-border;
+    @apply text-white;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .sub-text {
+    @apply font-thin text-sm text-muted/60;
+  }
+  .sub-heading {
+    @apply text-4xl ;
   }
 }
