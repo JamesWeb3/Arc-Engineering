@@ -67,10 +67,8 @@ const ReviewsComponent = () => {
     <SectionLayout>
       <div className="flex gap-6 justify-between items-center mb-8">
         <div>
-        <Badge text="TESTIMONIALS" icon={<IconSmallTestimonials />}></Badge>
-          <h2 className="sub-heading mt-2">
-            Discover Our Client Testimonials
-          </h2>
+          <Badge text="TESTIMONIALS" icon={<IconSmallTestimonials />}></Badge>
+          <h2 className="sub-heading mt-2">Discover Our Client Testimonials</h2>
         </div>
         <p className="sub-text max-w-md mt-2">
           Explore the testimonials and feedback from our valued customers to
@@ -92,9 +90,7 @@ const ReviewsComponent = () => {
                       className="flex rounded-full w-12 h-12"
                     />
                     <div className="mt-2">
-                      <p className="text-xs text-gray-500">
-                        {card.role}
-                      </p>
+                      <p className="text-xs text-gray-500">{card.role}</p>
                       <p>{card.name}</p>
                     </div>
                   </div>

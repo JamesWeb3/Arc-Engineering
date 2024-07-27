@@ -6,5 +6,9 @@ interface MainLayoutV2Props {
 }
 
 export function SectionLayout({ children, className }: MainLayoutV2Props) {
-  return <div className={clsx("max-w-6xl mx-auto w-full", className)}>{children}</div>
+  return (
+    <div className={clsx('max-w-6xl mx-auto w-full', className)}>
+      {children}
+    </div>
+  )
 }

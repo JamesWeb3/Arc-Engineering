@@ -149,7 +149,6 @@ function IconCalendly({ className, ...props }: React.ComponentProps<'svg'>) {
       stroke-linejoin="round"
       {...props}
     >
-     
       <g id="Layer_3">
         <path id="Layer_3-2" className="cls-1" d="M0,0H150V150H0V0Z" />
       </g>

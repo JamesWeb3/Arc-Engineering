@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="flex justify-between max-w-6xl items-center mx-auto w-full">
       <div className="flex gap-2 items-center">
         <div className="hover:animate-rotate text-white">
-          <IconLogo className="text-white"/>
+          <IconLogo className="text-white" />
         </div>
         Arc Engineering
       </div>

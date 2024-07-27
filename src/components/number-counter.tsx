@@ -14,7 +14,6 @@ const NumberTickerComponent = () => {
       <div className="flex flex-col items-center">
         <p className="whitespace-pre-wrap text-5xl font-medium tracking-tighter text-black dark:text-white">
           <NumberTicker value={17} />
-          
         </p>
         <p className="gradient-text">Clients </p>
       </div>
@@ -22,8 +21,7 @@ const NumberTickerComponent = () => {
       <div className="flex flex-col items-center">
         <p className="whitespace-pre-wrap text-5xl font-medium tracking-tighter text-black dark:text-white">
           $
-          <NumberTicker value={500} />
-          + 
+          <NumberTicker value={500} />+
         </p>
         <p className="gradient-text">Saved through Autonomy</p>
       </div>

@@ -22,7 +22,7 @@ export default function DefaultLayout() {
     <main
       className={`flex flex-col gap-40 px-6 py-6 bg-[#08070B] ${lexend.className}`}
     >
-      <NavComponent/>
+      <NavComponent />
       <HeroComponent />
 
       <NumberTickerComponent />
@@ -30,12 +30,12 @@ export default function DefaultLayout() {
 
       <IntegrationComponent />
 
-      <ReviewsComponent/>
+      <ReviewsComponent />
 
-      <ContactComponent/>
+      <ContactComponent />
 
       <GetStartedComponent />
-      <Footer/>
+      <Footer />
     </main>
   )
 }

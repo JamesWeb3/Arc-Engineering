@@ -3,7 +3,7 @@ import { SectionLayout } from '@/layouts/SectionLayout'
 const Footer = () => {
   return (
     <SectionLayout>
-      <div className="grid grid-cols-2 mb-12" >
+      <div className="grid grid-cols-2 mb-12">
         <div className="space-y-1">
           <h4 className="text-2xl">Company</h4>
           <p className="sub-text clickable-text">Services</p>

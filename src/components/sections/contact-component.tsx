@@ -68,40 +68,37 @@ const ContactComponent = () => {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <div className="flex w-full gap-8">
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col w-full relative">
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input type="name" placeholder="John Smith" {...field} />
+                    </FormControl>
+                    <FormMessage className="absolute bottom-[-14px]" />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col w-full">
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="email"
+                        placeholder="johnsmith@gmail.com"
+                        {...field}
+                      />
+                    </FormControl>
 
-            
-            <FormField
-            
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem className="flex flex-col w-full relative">
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input type="name" placeholder="John Smith" {...field} />
-                  </FormControl>
-                  <FormMessage className="absolute bottom-[-14px]"/>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem className="flex flex-col w-full">
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="johnsmith@gmail.com"
-                      {...field}
-                    />
-                  </FormControl>
-
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             </div>
             <FormField
               control={form.control}

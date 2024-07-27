@@ -29,7 +29,6 @@ export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
 
 type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>
 
-
 export function OrbitingCirclesDemo() {
   const [data, setData] = useState<IconData | null>(null)
   const { theme } = useTheme()
@@ -73,8 +72,8 @@ export function OrbitingCirclesDemo() {
 
   return (
     <div className="relative flex h-[500px] w-full max-w-xl flex-col items-center justify-center bg-radial-fade">
-      <div className="absolute p-36 border border-muted-foreground/10 rounded-full"/>
-      <div className="absolute p-24 border border-muted-foreground/40 rounded-full"/>
+      <div className="absolute p-36 border border-muted-foreground/10 rounded-full" />
+      <div className="absolute p-24 border border-muted-foreground/40 rounded-full" />
       <span className="pointer-events-none border border-muted-foreground/80 p-6 rounded-full">
         <IconLogo />
       </span>

@@ -15,7 +15,9 @@ const GetStartedComponent = () => {
           building credit, earning rewards and saving money.
         </p>
       </div>
-      <Button className="w-max" onClick={handleClick}>Get Started</Button>
+      <Button className="w-max" onClick={handleClick}>
+        Get Started
+      </Button>
     </SectionLayout>
   )
 }
