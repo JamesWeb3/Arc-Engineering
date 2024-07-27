@@ -5,7 +5,7 @@ import { IconSmallIntegration } from '@/components/icons'
 const IntegrationComponent = () => {
   return (
     <div className="flex flex-col items-center text-center">
-      <div className="flex flex-col items-center gap-4 max-w-xl mb-[-50px]">
+      <div className="flex flex-col items-center gap-4 max-w-xl mt-12">
         <Badge text="INTEGRATION" icon={<IconSmallIntegration />}></Badge>
         <h2 className="sub-heading">
           Seamless Integration <br />

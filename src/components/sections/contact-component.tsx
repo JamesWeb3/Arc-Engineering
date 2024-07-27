@@ -44,7 +44,7 @@ const ContactComponent = () => {
   }
 
   return (
-    <SectionLayout className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12">
+    <SectionLayout id="contact" className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12">
       <Card className="cols-span-1 flex flex-col justify-between gap-4 p-8 ">
         <h2 className="sub-heading">Contact Us</h2>
         <p className="sub-text">Lorem Ipsum</p>

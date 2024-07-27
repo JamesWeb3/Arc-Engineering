@@ -20,7 +20,7 @@ const lexend = Lexend({
 export default function DefaultLayout() {
   return (
     <main
-      className={`flex flex-col gap-40 px-6 py-6 bg-[#08070B] ${lexend.className}`}
+      className={`flex flex-col gap-8 px-6 py-6 bg-[#08070B] ${lexend.className}`}
     >
       <NavComponent />
       <HeroComponent />

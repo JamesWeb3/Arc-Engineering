@@ -69,6 +69,10 @@ const config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       keyframes: {
+        fadeSlideIn: {
+          "0%, 30%": { opacity: "0", transform: "translateY(20%)" },
+          "50%, 100%": { opacity: "1", transform: "translateY(0)" },
+      },
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
@@ -113,6 +117,7 @@ const config = {
         'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
         fadeIn: 'fadeIn 0.3s ease-in-out',
         rotate: 'rotate 1s linear infinite',
+        fadeSlideIn: "fadeSlideIn 0.5s ease-in forwards",
       },
     },
   },

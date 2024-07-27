@@ -1,5 +1,7 @@
 import { BorderBeam } from '@/components/ui/magicui/border-beam'
 import { IconLogo } from '@/components/icons'
+import { Button } from '../ui/button'
+import Link from 'next/link'
 
 const Navbar = () => {
   return (
@@ -11,15 +13,15 @@ const Navbar = () => {
         Arc Engineering
       </div>
       <ul className="flex gap-4 sub-text">
-        <li className="sub-text clickable-text">Services</li>
-        <li className="sub-text clickable-text">Testimonials</li>
-        <li className="sub-text clickable-text">Contact</li>
+        <Link href="#services" className="sub-text clickable-text">Services</Link>
+        <Link href="#testimonials" className="sub-text clickable-text">Testimonials</Link>
+        <Link href="#contact"className="sub-text clickable-text">Contact</Link>
       </ul>
-      <div className="relative flex items-center p-2 overflow-hidden rounded-lg">
-        <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center font-semibold leading-none">
+      <div className="relative flex items-center p-1 overflow-hidden ">
+        <Button className="">
           Book a Call
-        </span>
-        <BorderBeam size={100} duration={12} delay={9} />
+        </Button>
+        <BorderBeam size={100} duration={12} delay={9} className="rounded-lg" />
       </div>
     </nav>
   )
