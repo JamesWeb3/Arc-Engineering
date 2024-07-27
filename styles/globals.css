@@ -76,9 +76,16 @@
     @apply bg-background text-foreground;
   }
   .sub-text {
-    @apply font-thin text-sm text-muted/60;
+    @apply font-thin text-muted/70 tracking-wider;
   }
   .sub-heading {
-    @apply text-4xl ;
+    @apply text-4xl font-medium leading-tight;
+  }
+  .gradient-text {
+    background: linear-gradient(to right, #555458, #CACACB);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; 
   }
 }

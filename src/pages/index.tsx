@@ -8,6 +8,7 @@ import CardComponent from '@/components/card-component'
 import IntegrationComponent from '@/components/integration-component'
 import ContactComponent from '@/components/contact-component'
 import GetStartedComponent from '@/components/get-started-component'
+import ReviewsComponent from '@/components/reviews-component'
 
 const lexend = Lexend({
   weight: ['300', '400', '500', '600', '700'],
@@ -27,6 +28,8 @@ export default function DefaultLayout() {
       <CardComponent />
 
       <IntegrationComponent />
+
+      <ReviewsComponent/>
 
       <ContactComponent/>
 
