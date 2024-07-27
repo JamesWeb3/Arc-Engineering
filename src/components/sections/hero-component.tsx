@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
-import AvatarCircles from '../ui/magicui/avatar-circles'
+import AvatarCircles from '@/components/ui/magicui/avatar-circles'
 import Image from 'next/image'
-import HeroImage from '../../public/hero_image.png'
+import HeroImage from '../../../public/hero_image.png'
 import { SectionLayout } from '@/layouts/SectionLayout'
 
 const avatarUrls = [

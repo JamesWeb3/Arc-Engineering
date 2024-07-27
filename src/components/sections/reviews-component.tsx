@@ -9,10 +9,10 @@ import {
 } from '@/components/ui/carousel'
 import { SectionLayout } from '@/layouts/SectionLayout'
 import { type CarouselApi } from '@/components/ui/carousel'
-import Grant from '../../public/grant.jpeg'
-import Alexander from '../../public/alexander.jpeg'
-import Jayce from '../../public/jayce.jpeg'
-import Josh from '../../public/josh.jpeg'
+import Grant from '../../../public/grant.jpeg'
+import Alexander from '../../../public/alexander.jpeg'
+import Jayce from '../../../public/jayce.jpeg'
+import Josh from '../../../public/josh.jpeg'
 import Image from 'next/image'
 
 const reviewData = [
