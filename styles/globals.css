@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
  
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -67,6 +68,7 @@
     --ring: 216 12.2% 83.9%;
   }
 }
+
  
 @layer base {
   * {
@@ -76,10 +78,13 @@
     @apply bg-background text-foreground;
   }
   .sub-text {
-    @apply font-thin text-muted/70 tracking-wider;
+    @apply font-thin text-muted-foreground tracking-wider;
   }
   .sub-heading {
     @apply text-4xl font-medium leading-tight;
+  }
+  .clickable-text {
+    @apply hover:text-[#ED7B29] cursor-pointer transition ease-in-out duration-300;
   }
   .gradient-text {
     background: linear-gradient(to right, #555458, #CACACB);
@@ -88,4 +93,5 @@
     -webkit-text-fill-color: transparent;
     color: transparent; 
   }
+  
 }

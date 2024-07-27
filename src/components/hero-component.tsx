@@ -16,8 +16,8 @@ const HeroComponent = () => {
     <SectionLayout>
       <div className="grid grid-cols-2 bg-red-100 w-full items-center">
         <div className="flex flex-col gap-10">
-          <h1 className="text-7xl font-medium gradient-text">
-            <span>Frontend & Automation</span>
+          <h1 className="text-6xl font-medium gradient-text">
+            Frontend & Automation
             <br />
             Development Studio
           </h1>
@@ -28,7 +28,11 @@ const HeroComponent = () => {
           </p>
           <div className="flex items-center gap-6">
             <Button>Get Started</Button>
-            <AvatarCircles numPeople={15} avatarUrls={avatarUrls} />
+            <AvatarCircles
+              className="cursor-pointer"
+              numPeople={15}
+              avatarUrls={avatarUrls}
+            />
             <p>15 + Clients</p>
           </div>
         </div>

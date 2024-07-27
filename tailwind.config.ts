@@ -16,10 +16,12 @@ const config = {
     extend: {
       backgroundImage: {
         'radial-fade':
-          'radial-gradient(circle, rgba(255, 255, 255, 0.08) 30%, rgba(255, 255, 255, 0) 60%)',
+          'radial-gradient(circle, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0) 70%)',
         'custom-gradient': 'linear-gradient(to top right, #16151E, #343439)',
         '3d-gradient':
           'linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(22, 21, 30, 0.7) 40%, #343439 100%)',
+        'gradient-tl-br':
+          'linear-gradient(to bottom right, transparent, rgba(237, 123, 41, 0.2))',
       },
       colors: {
         red: '#FF0000',
@@ -67,6 +69,10 @@ const config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
         'border-beam': {
           '100%': {
             'offset-distance': '100%',
@@ -90,6 +96,14 @@ const config = {
               'rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)',
           },
         },
+        rotate: {
+          '0%': {
+            transform: 'rotate(0deg)',
+          },
+          '100%': {
+            transform: 'rotate(360deg)',
+          },
+        },
       },
 
       animation: {
@@ -97,6 +111,8 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         orbit: 'orbit calc(var(--duration)*1s) linear infinite',
         'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
+        fadeIn: 'fadeIn 0.3s ease-in-out',
+        rotate: 'rotate 1s linear infinite',
       },
     },
   },
