@@ -1,4 +1,4 @@
-import { BorderBeam } from '@/components/magicui/border-beam'
+import { BorderBeam } from '@/components/ui/magicui/border-beam'
 import { IconLogo } from '@/components/icons'
 
 const Navbar = () => {

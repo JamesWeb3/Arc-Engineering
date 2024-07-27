@@ -1,15 +1,15 @@
 'use client'
 import React from 'react'
 import { Lexend } from 'next/font/google'
-import NavComponent from '@/components/navbar'
-import Footer from '@/components/footer'
-import HeroComponent from '@/components/hero-component'
+import NavComponent from '@/components/sections/navbar'
+import Footer from '@/components/sections/footer'
+import HeroComponent from '@/components/sections/hero-component'
 import NumberTickerComponent from '@/components/number-counter'
-import CardComponent from '@/components/card-component'
-import IntegrationComponent from '@/components/integration-component'
-import ContactComponent from '@/components/contact-component'
-import GetStartedComponent from '@/components/get-started-component'
-import ReviewsComponent from '@/components/reviews-component'
+import CardComponent from '@/components/sections/card-component'
+import IntegrationComponent from '@/components/sections/integration-component'
+import ContactComponent from '@/components/sections/contact-component'
+import GetStartedComponent from '@/components/sections/get-started-component'
+import ReviewsComponent from '@/components/sections/reviews-component'
 
 const lexend = Lexend({
   weight: ['300', '400', '500', '600', '700'],

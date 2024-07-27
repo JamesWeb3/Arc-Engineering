@@ -142,7 +142,7 @@ function IconCalendly({ className, ...props }: React.ComponentProps<'svg'>) {
       viewBox="0 0 150 150"
       width="16"
       height="16"
-      fill="#0077B5"  // Assuming #0077B5 is the calednyl blue hex code
+      fill=""
       stroke="#fff"
       stroke-width="2"
       stroke-linecap="round"

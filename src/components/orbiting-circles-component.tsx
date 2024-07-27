@@ -1,13 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTheme } from 'next-themes'
 import {
-  Cloud,
   fetchSimpleIcons,
-  ICloud,
   renderSimpleIcon,
   SimpleIcon,
 } from 'react-icon-cloud'
-import OrbitingCircles from '@/components/magicui/orbiting-circles'
+import OrbitingCircles from '@/components/ui/magicui/orbiting-circles'
 import { IconLogo } from './icons'
 export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
   const bgHex = theme === 'light' ? '#f3f2ef' : '#080510'
@@ -146,8 +144,4 @@ export function OrbitingCirclesDemo() {
       </OrbitingCircles>
     </div>
   )
-}
-
-export function CalendlyIcon() {
-  return <Icon slug="calendly" />;
 }

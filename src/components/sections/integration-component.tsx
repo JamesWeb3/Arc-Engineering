@@ -1,4 +1,4 @@
-import { OrbitingCirclesDemo } from './orbiting-circles-component'
+import { OrbitingCirclesDemo } from '../orbiting-circles-component'
 import { Badge } from '@/components/ui/badge'
 import { IconSmallIntegration } from '@/components/icons'
 

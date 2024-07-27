@@ -1,4 +1,4 @@
-import NumberTicker from '@/components/magicui/number-ticker'
+import NumberTicker from '@/components/ui/magicui/number-ticker'
 import { SectionLayout } from '@/layouts/SectionLayout'
 
 const NumberTickerComponent = () => {
