@@ -23,32 +23,32 @@ function MyApp({
     <>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <Head>
-          <title>Desktop HQ</title>
+          <title>Arc Engineering - Frontend & Automation Development Studio</title>
           <meta
             name="description"
-            content="Agentive allows you to create, deploy, and manage next-generation AI Agents in minutes."
+            content="Arc Engineering"
           />
           <meta
             property="og:title"
-            content="Agentive - Create, Deploy & Manage AI Agents"
+            content="Arc Engineering"
           />
           <meta
             property="og:description"
-            content="Agentive allows you to create, deploy, and manage next-generation AI Agents in minutes."
+            content="Arc Engineering"
           />
-          <meta property="og:image" content="/agentive_og.webp" />
+          <meta property="og:image" content="/arc_og.webp" />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://agentivehub.com" />
+          <meta property="og:url" content="https://arcengineering.io" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta
             name="twitter:title"
-            content="Agentive - Create, Deploy & Manage AI Agents"
+            content="Arc Engineering"
           />
           <meta
             name="twitter:description"
-            content="Agentive allows you to create, deploy, and manage next-generation AI Agents in minutes."
+            content="Arc Engineering"
           />
-          <meta name="twitter:image" content="/agentive_webclip_256x256.webp" />
+          <meta name="twitter:image" content="/arc_webclip_256x256.webp" />
 
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
