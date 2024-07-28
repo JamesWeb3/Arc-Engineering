@@ -102,14 +102,7 @@ const config = {
               'rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)',
           },
         },
-        rotate: {
-          '0%': {
-            transform: 'rotate(0deg)',
-          },
-          '100%': {
-            transform: 'rotate(360deg)',
-          },
-        },
+        
       },
 
       animation: {
@@ -118,7 +111,6 @@ const config = {
         orbit: 'orbit calc(var(--duration)*1s) linear infinite',
         'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
         fadeIn: 'fadeIn 0.3s ease-in-out',
-        rotate: 'rotate 1s linear infinite',
         fadeSlideIn: "fadeSlideIn 0.5s ease-in forwards",
       },
     },

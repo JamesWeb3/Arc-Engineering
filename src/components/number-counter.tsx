@@ -2,7 +2,7 @@ import NumberTicker from '@/components/ui/magicui/number-ticker'
 
 const NumberTickerr = () => {
   return (
-    <div className="flex !flex-row gap-16 my-24 items-center justify-center">
+    <div className="flex !flex-row gap-16 my-32 items-center justify-center">
       <div className="flex flex-col items-center">
         <p className="whitespace-pre-wrap text-5xl font-medium">
           <NumberTicker value={37} />

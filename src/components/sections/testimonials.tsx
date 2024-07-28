@@ -65,16 +65,17 @@ const Testimonials = () => {
 
   return (
     <SectionLayout id="testimonials">
-      <div className="flex w-full pl-3 justify-between items-center mb-8">
-        <div>
+      <div className="flex flex-col w-full pl-3 mb-4">
+        
           <Badge text="TESTIMONIALS" icon={<IconSmallTestimonials />}></Badge>
           <h2 className="sub-heading mt-2">Discover Our Client Testimonials</h2>
-        </div>
-        <p className="sub-text max-w-md mt-2">
+          <p className="sub-text max-w-2xl mt-2">
           Explore the testimonials and feedback from our valued customers to
           gain insights into their experiences and satisfaction with our SaaS
           solution.
         </p>
+       
+       
       </div>
       <Carousel setApi={setApi}>
         <CarouselContent className="ml-1">

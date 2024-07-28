@@ -29,13 +29,15 @@ export default function DefaultLayout() {
 
       <NumberTickerr />
       <Services />
-      <Pricing/>
 
       <Integrations />
 
       <Testimonials />
 
       <ContactComponent />
+
+      <Pricing/>
+
 
       <GetStarted />
       <Footer />

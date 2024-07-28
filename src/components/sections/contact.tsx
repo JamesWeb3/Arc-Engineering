@@ -17,6 +17,8 @@ import Image from 'next/image'
 import { Card } from '@/components/ui/card'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { Label } from '@/components/ui/label'
+import { Badge } from '../ui/badge'
+import { IconSmallPhone } from '@/components/icons'
 
 const formSchema = z.object({
   email: z
@@ -52,7 +54,11 @@ const ContactComponent = () => {
       className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 items-center max-w-7xl mx-auto w-full my-20"
     >
       <Card className="cols-span-1 flex flex-col justify-between gap-14 p-8 py-12 ">
-        <h2 className="sub-heading">Contact Us</h2>
+        <div>
+          <Badge text="CONTACT" icon={<IconSmallPhone />}></Badge>
+          <h2 className="sub-heading mt-2">Contact Us</h2>
+        </div>
+
         <p className="sub-text">
           Reach out for a free quote and run down of your project.
         </p>
@@ -114,11 +120,46 @@ const ContactComponent = () => {
                 <FormItem className="flex flex-col w-full">
                   <Label>Select Project Scope</Label>
                   <FormControl>
-                    <ToggleGroup type="single" className="justify-between px-4 pt-2">
-                    <ToggleGroupItem className="flex flex-col p-3 h-14 hover:bg-[#111114]/50 data-[state=on]:bg-[#111114] data-[state=off]:border-[#252428] border-transparent" value="tiny">Quick Automation<span className="text-xs sub-text *:">(couple days)</span></ToggleGroupItem>
-                      <ToggleGroupItem className="flex flex-col p-3 h-14 hover:bg-[#111114]/50 data-[state=on]:bg-[#111114] data-[state=off]:border-[#252428] border-transparent" value="small">Website Creation<span className="text-xs sub-text *:">(couple days)</span></ToggleGroupItem>
-                      <ToggleGroupItem className="flex flex-col p-3 h-14 hover:bg-[#111114]/50 data-[state=on]:bg-[#111114] data-[state=off]:border-[#252428] border-transparent" value="large">Component Building<span className="text-xs sub-text *:">(several weeks)</span></ToggleGroupItem>
-                      <ToggleGroupItem className="flex flex-col p-3 h-14 hover:bg-[#111114]/50 data-[state=on]:bg-[#111114] data-[state=off]:border-[#252428] border-transparent" value="huge">Complex Project<span className="text-xs sub-text *:">(several months)</span></ToggleGroupItem>
+                    <ToggleGroup
+                      type="single"
+                      className="justify-between px-4 pt-2"
+                    >
+                      <ToggleGroupItem
+                        className="flex flex-col p-3 h-14 hover:bg-[#111114]/50 data-[state=on]:bg-[#111114] data-[state=off]:border-[#252428] border-transparent"
+                        value="tiny"
+                      >
+                        Quick Automation
+                        <span className="text-xs sub-text *:">
+                          (couple days)
+                        </span>
+                      </ToggleGroupItem>
+                      <ToggleGroupItem
+                        className="flex flex-col p-3 h-14 hover:bg-[#111114]/50 data-[state=on]:bg-[#111114] data-[state=off]:border-[#252428] border-transparent"
+                        value="small"
+                      >
+                        Website Creation
+                        <span className="text-xs sub-text *:">
+                          (couple days)
+                        </span>
+                      </ToggleGroupItem>
+                      <ToggleGroupItem
+                        className="flex flex-col p-3 h-14 hover:bg-[#111114]/50 data-[state=on]:bg-[#111114] data-[state=off]:border-[#252428] border-transparent"
+                        value="large"
+                      >
+                        Component Building
+                        <span className="text-xs sub-text *:">
+                          (several weeks)
+                        </span>
+                      </ToggleGroupItem>
+                      <ToggleGroupItem
+                        className="flex flex-col p-3 h-14 hover:bg-[#111114]/50 data-[state=on]:bg-[#111114] data-[state=off]:border-[#252428] border-transparent"
+                        value="huge"
+                      >
+                        Complex Project
+                        <span className="text-xs sub-text *:">
+                          (several months)
+                        </span>
+                      </ToggleGroupItem>
                     </ToggleGroup>
                   </FormControl>
 

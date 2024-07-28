@@ -4,24 +4,37 @@ import { Button } from '../ui/button'
 import Link from 'next/link'
 
 const Navbar = () => {
+  const handleClick = () => {
+    window.open('https://calendly.com/james-at-arc', '_blank')
+  }
+
   return (
     <nav className="flex justify-between max-w-7xl items-center mx-auto w-full">
-      <Link href="/" className="flex gap-2 items-center">
-        <div className="hover:animate-rotate text-white cursor-pointer">
-          <IconLogo className="text-white" />
+      <Link
+        href="/"
+        className="flex gap-2 items-center hover:text-muted-foreground transition ease-in-out duration-200 group"
+      >
+        <div className="hover:text-muted-foreground">
+          <IconLogo />
         </div>
-        <p className="hover:text-muted-foreground transition ease-in-out duration-200">Arc Engineering</p>
-       
+        Arc Engineering
       </Link>
       <ul className="flex gap-4 sub-text">
-        <Link href="#services" className="sub-text clickable-text">Services</Link>
-        <Link href="#testimonials" className="sub-text clickable-text">Testimonials</Link>
-        <Link href="#contact"className="sub-text clickable-text">Contact</Link>
+        <Link href="#services" className="sub-text clickable-text">
+          Services
+        </Link>
+        <Link href="#testimonials" className="sub-text clickable-text">
+          Testimonials
+        </Link>
+        <Link href="#contact" className="sub-text clickable-text">
+          Contact
+        </Link>
+        <Link href="/pricing" className="sub-text clickable-text">
+          Pricing
+        </Link>
       </ul>
       <div className="relative flex items-center p-1 overflow-hidden cursor-pointer">
-        <Button>
-          Book a Call
-        </Button>
+        <Button onClick={handleClick}>Book a Call</Button>
         <BorderBeam size={100} duration={12} delay={9} className="rounded-lg" />
       </div>
     </nav>
