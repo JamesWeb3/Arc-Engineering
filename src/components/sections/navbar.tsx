@@ -6,12 +6,13 @@ import Link from 'next/link'
 const Navbar = () => {
   return (
     <nav className="flex justify-between max-w-7xl items-center mx-auto w-full">
-      <div className="flex gap-2 items-center">
-        <div className="hover:animate-rotate text-white">
+      <Link href="/" className="flex gap-2 items-center">
+        <div className="hover:animate-rotate text-white cursor-pointer">
           <IconLogo className="text-white" />
         </div>
-        Arc Engineering
-      </div>
+        <p className="hover:text-muted-foreground transition ease-in-out duration-200">Arc Engineering</p>
+       
+      </Link>
       <ul className="flex gap-4 sub-text">
         <Link href="#services" className="sub-text clickable-text">Services</Link>
         <Link href="#testimonials" className="sub-text clickable-text">Testimonials</Link>

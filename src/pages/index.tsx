@@ -5,11 +5,13 @@ import Navbar from '@/components/sections/navbar'
 import Footer from '@/components/sections/footer'
 import Hero from '@/components/sections/hero'
 import NumberTickerr from '@/components/number-counter'
-import CardComponent from '@/components/sections/services'
+import Services from '@/components/sections/services'
 import Integrations from '@/components/sections/integrations'
 import ContactComponent from '@/components/sections/contact'
 import GetStarted from '@/components/sections/get-started'
 import Testimonials from '@/components/sections/testimonials'
+import Pricing from '@/components/sections/pricing'
+
 
 const lexend = Lexend({
   weight: ['300', '400', '500', '600', '700'],
@@ -20,13 +22,14 @@ const lexend = Lexend({
 export default function DefaultLayout() {
   return (
     <main
-      className={`flex flex-col gap-8 px-6 py-6 bg-[#08070B] ${lexend.className}`}
+      className={`flex flex-col gap-8 px-6 py-6 bg-[#08070B] overflow-hidden ${lexend.className}`}
     >
       <Navbar />
       <Hero />
 
       <NumberTickerr />
-      <CardComponent />
+      <Services />
+      <Pricing/>
 
       <Integrations />
 

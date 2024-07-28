@@ -44,7 +44,7 @@ const CardComponent = () => {
       </p>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 mt-4">
+      <div className="grid grid-cols-3 gap-4 mt-8">
         {cardsData.map((card, index) => (
           <Card
             key={index}

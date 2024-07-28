@@ -41,6 +41,30 @@ function IconSmallRocket({ className, ...props }: React.ComponentProps<'svg'>) {
   )
 }
 
+function IconSmallDiamond({
+  className,
+  ...props
+}: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#ED7B29"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      {...props}
+    >
+      <path d="M6 3h12l4 6-10 13L2 9Z" />
+      <path d="M11 3 8 9l4 13 4-13-3-6" />
+      <path d="M2 9h20" />
+    </svg>
+  )
+}
+
 function IconLogo({ className, ...props }: React.ComponentProps<'svg'>) {
   return (
     <svg
@@ -264,6 +288,7 @@ export {
   IconSmallIntegration,
   IconSmallTestimonials,
   IconSmallRocket,
+  IconSmallDiamond,
   IconLayers,
   IconFrontends,
   IconAutonomy,
