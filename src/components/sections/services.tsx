@@ -30,9 +30,10 @@ const cardsData = [
 
 const CardComponent = () => {
   return (
-    <SectionLayout className="flex flex-col gap-4 items-center text-center">
+    <SectionLayout>
+      <div className="items-center flex flex-col text-center">
       <Badge text="SERVICES" icon={<IconSmallServices />}></Badge>
-      <h2 className="sub-heading">
+      <h2 className="sub-heading text-center">
         Design and Develop <br />
         Robust Technical Solutions
       </h2>
@@ -41,6 +42,7 @@ const CardComponent = () => {
         insights, allowing you to stay ahead of market trends and customer
         preferences.
       </p>
+      </div>
 
       <div className="grid grid-cols-3 gap-4 mt-4">
         {cardsData.map((card, index) => (
@@ -53,7 +55,7 @@ const CardComponent = () => {
               {card.icon}
             </div>
             <h3 className="relative">{card.title}</h3>
-            <p className="relative sub-text">{card.description}</p>
+            <p className="relative sub-text text-center">{card.description}</p>
           </Card>
         ))}
       </div>

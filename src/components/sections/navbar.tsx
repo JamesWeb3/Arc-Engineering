@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between max-w-6xl items-center mx-auto w-full">
+    <nav className="flex justify-between max-w-7xl items-center mx-auto w-full">
       <div className="flex gap-2 items-center">
         <div className="hover:animate-rotate text-white">
           <IconLogo className="text-white" />
@@ -17,8 +17,8 @@ const Navbar = () => {
         <Link href="#testimonials" className="sub-text clickable-text">Testimonials</Link>
         <Link href="#contact"className="sub-text clickable-text">Contact</Link>
       </ul>
-      <div className="relative flex items-center p-1 overflow-hidden ">
-        <Button className="">
+      <div className="relative flex items-center p-1 overflow-hidden cursor-pointer">
+        <Button>
           Book a Call
         </Button>
         <BorderBeam size={100} duration={12} delay={9} className="rounded-lg" />

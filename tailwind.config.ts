@@ -17,6 +17,8 @@ const config = {
       backgroundImage: {
         'radial-fade':
           'radial-gradient(circle, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0) 70%)',
+          'radial-fade-hero':
+          'radial-gradient(circle, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0) 70%)',
         'custom-gradient': 'linear-gradient(to top right, #16151E, #343439)',
         '3d-gradient':
           'linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(22, 21, 30, 0.7) 40%, #343439 100%)',

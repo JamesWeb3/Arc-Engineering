@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { SectionLayout } from '@/layouts/SectionLayout'
 
-const GetStartedComponent = () => {
+const GetStarted = () => {
   const handleClick = () => {
     window.open('https://calendly.com/james-at-arc', '_blank')
   }
@@ -22,4 +22,4 @@ const GetStartedComponent = () => {
   )
 }
 
-export default GetStartedComponent
+export default GetStarted

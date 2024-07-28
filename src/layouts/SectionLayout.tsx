@@ -44,7 +44,7 @@ export function SectionLayout({ children, className, id }: MainLayoutV2Props) {
       ref={ref}
       id={id}
       className={cn(
-        `flex flex-col items-center text-center max-w-6xl mx-auto w-full my-20 ${
+        `flex flex-col items-center max-w-7xl mx-auto w-full my-20 ${
           isVisible ? 'opacity-100 animate-fadeSlideIn' : 'opacity-0'
         }`,
       )}

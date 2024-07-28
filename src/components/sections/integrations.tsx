@@ -2,7 +2,7 @@ import { OrbitingCirclesDemo } from '../orbiting-circles-component'
 import { Badge } from '@/components/ui/badge'
 import { IconSmallIntegration } from '@/components/icons'
 
-const IntegrationComponent = () => {
+const Integrations = () => {
   return (
     <div className="flex flex-col items-center text-center">
       <div className="flex flex-col items-center gap-4 max-w-xl mt-12">
@@ -18,4 +18,4 @@ const IntegrationComponent = () => {
   )
 }
 
-export default IntegrationComponent
+export default Integrations

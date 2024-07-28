@@ -15,7 +15,7 @@ import Jayce from '../../../public/jayce.jpeg'
 import Josh from '../../../public/josh.jpeg'
 import Image from 'next/image'
 
-const reviewData = [
+const testimonialData = [
   {
     review:
       '"For anyone to start building their real estate portfolio, no matter the size of your wallet."',
@@ -60,12 +60,12 @@ const reviewData = [
   },
 ]
 
-const ReviewsComponent = () => {
+const Testimonials = () => {
   const [api, setApi] = React.useState<CarouselApi>()
 
   return (
-    <SectionLayout>
-      <div className="flex gap-6 justify-between items-center mb-8">
+    <SectionLayout id="testimonials">
+      <div className="flex w-full pl-3 justify-between items-center mb-8">
         <div>
           <Badge text="TESTIMONIALS" icon={<IconSmallTestimonials />}></Badge>
           <h2 className="sub-heading mt-2">Discover Our Client Testimonials</h2>
@@ -77,12 +77,12 @@ const ReviewsComponent = () => {
         </p>
       </div>
       <Carousel setApi={setApi}>
-        <CarouselContent>
-          {reviewData.map((card, index) => (
-            <CarouselItem key={index} className="p-2 basis-1/3">
+        <CarouselContent className="ml-1">
+          {testimonialData.map((card, index) => (
+            <CarouselItem key={index} className="p-2 basis-1/3 ">
               <Card>
                 <CardContent className="flex flex-col p-0 gap-2 h-36">
-                  <p className="sub-text">{card.review}</p>
+                  <p className="sub-text text-justify">{card.review}</p>
                   <div className="flex items-center gap-3 mt-2">
                     <Image
                       src={card.image}
@@ -104,4 +104,4 @@ const ReviewsComponent = () => {
   )
 }
 
-export default ReviewsComponent
+export default Testimonials

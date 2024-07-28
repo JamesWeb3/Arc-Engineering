@@ -1,9 +1,8 @@
 import NumberTicker from '@/components/ui/magicui/number-ticker'
-import { SectionLayout } from '@/layouts/SectionLayout'
 
-const NumberTickerComponent = () => {
+const NumberTickerr = () => {
   return (
-    <SectionLayout className="flex flex-row gap-16 items-center justify-center">
+    <div className="flex !flex-row gap-16 my-24 items-center justify-center">
       <div className="flex flex-col items-center">
         <p className="whitespace-pre-wrap text-5xl font-medium">
           <NumberTicker value={37} />
@@ -25,8 +24,8 @@ const NumberTickerComponent = () => {
         </p>
         <p className="gradient-text">Saved through Autonomy</p>
       </div>
-    </SectionLayout>
+    </div>
   )
 }
 
-export default NumberTickerComponent
+export default NumberTickerr

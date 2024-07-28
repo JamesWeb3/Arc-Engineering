@@ -1,15 +1,15 @@
 'use client'
 import React from 'react'
 import { Lexend } from 'next/font/google'
-import NavComponent from '@/components/sections/navbar'
+import Navbar from '@/components/sections/navbar'
 import Footer from '@/components/sections/footer'
-import HeroComponent from '@/components/sections/hero-component'
-import NumberTickerComponent from '@/components/number-counter'
-import CardComponent from '@/components/sections/card-component'
-import IntegrationComponent from '@/components/sections/integration-component'
-import ContactComponent from '@/components/sections/contact-component'
-import GetStartedComponent from '@/components/sections/get-started-component'
-import ReviewsComponent from '@/components/sections/reviews-component'
+import Hero from '@/components/sections/hero'
+import NumberTickerr from '@/components/number-counter'
+import CardComponent from '@/components/sections/services'
+import Integrations from '@/components/sections/integrations'
+import ContactComponent from '@/components/sections/contact'
+import GetStarted from '@/components/sections/get-started'
+import Testimonials from '@/components/sections/testimonials'
 
 const lexend = Lexend({
   weight: ['300', '400', '500', '600', '700'],
@@ -22,19 +22,19 @@ export default function DefaultLayout() {
     <main
       className={`flex flex-col gap-8 px-6 py-6 bg-[#08070B] ${lexend.className}`}
     >
-      <NavComponent />
-      <HeroComponent />
+      <Navbar />
+      <Hero />
 
-      <NumberTickerComponent />
+      <NumberTickerr />
       <CardComponent />
 
-      <IntegrationComponent />
+      <Integrations />
 
-      <ReviewsComponent />
+      <Testimonials />
 
       <ContactComponent />
 
-      <GetStartedComponent />
+      <GetStarted />
       <Footer />
     </main>
   )
