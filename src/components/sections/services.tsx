@@ -30,7 +30,7 @@ const cardsData = [
 
 const CardComponent = () => {
   return (
-    <SectionLayout>
+    <SectionLayout id="services">
       <div className="items-center flex flex-col text-center">
       <Badge text="SERVICES" icon={<IconSmallServices />}></Badge>
       <h2 className="sub-heading text-center">

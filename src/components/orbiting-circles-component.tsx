@@ -36,22 +36,22 @@ export function OrbitingCirclesDemo() {
   useEffect(() => {
     const slugs = [
       'typescript',
+      'javascript',
       'react',
       'android',
+      'slack',
       'make',
       'next',
       'express',
       'nextdotjs',
       'prisma',
       'amazonaws',
-      'postgresql',
-      'firebase',
-      'nginx',
       'vercel',
       'airtable',
       'github',
       'figma',
-      'figma',
+      'tailwindcss',
+      ''
     ]
     fetchSimpleIcons({ slugs }).then(setData)
   }, [])
@@ -80,17 +80,17 @@ export function OrbitingCirclesDemo() {
 
       {/* Inner Circles */}
       <OrbitingCircles
-        className="size-[60px] border-none p-3 bg-[#141412] bg-3d-gradient"
-        duration={20}
-        delay={20}
+        className="size-[50px] border-none p-3 bg-[#141412] bg-3d-gradient"
+        duration={30}
+        delay={10}
         radius={80}
       >
         <Icon slug="typescript" />
       </OrbitingCircles>
       <OrbitingCircles
-        className="size-[30px] border-none bg-transparent"
-        duration={20}
-        delay={10}
+        className="size-[50px] border-none p-2 bg-[#141412] bg-3d-gradient"
+        duration={30}
+        delay={20}
         radius={80}
       >
         <Icon slug="react" />
@@ -98,16 +98,15 @@ export function OrbitingCirclesDemo() {
 
       {/* Outer Circles (reverse) */}
       <OrbitingCircles
-        className="size-[50px] border-none bg-transparent"
-        radius={190}
+        className="size-[50px] border-none p-2 bg-[#141412] bg-3d-gradient"
+        radius={30}
         duration={20}
-        delay={15}
-        reverse
+        delay={30}
       >
         <Icon slug="airtable" />
       </OrbitingCircles>
       <OrbitingCircles
-        className="size-[50px] border-none bg-transparent"
+        className="size-[50px] border-none p-2 bg-[#141412] bg-3d-gradient"
         radius={190}
         duration={20}
         reverse
@@ -115,7 +114,7 @@ export function OrbitingCirclesDemo() {
         <Icon slug="github" />
       </OrbitingCircles>
       <OrbitingCircles
-        className="size-[50px] border-none bg-transparent"
+        className="size-[50px] border-none p-2 bg-[#141412] bg-3d-gradient"
         radius={170}
         duration={18}
         delay={20}
@@ -124,7 +123,7 @@ export function OrbitingCirclesDemo() {
         <Icon slug="make" />
       </OrbitingCircles>
       <OrbitingCircles
-        className="size-[50px] border-none bg-transparent"
+        className="size-[50px] border-none p-2 bg-[#141412] bg-3d-gradient"
         radius={210}
         duration={30}
         delay={40}
@@ -133,13 +132,49 @@ export function OrbitingCirclesDemo() {
         <Icon slug="figma" />
       </OrbitingCircles>
       <OrbitingCircles
-        className="size-[50px] border-none bg-transparent"
+        className="size-[40px] border-none p-2 bg-[#141412] bg-3d-gradient"
         radius={70}
         duration={15}
         delay={23}
         reverse
       >
         <Icon slug="vercel" />
+      </OrbitingCircles>
+      <OrbitingCircles
+        className="size-[50px] border-none p-2 bg-[#141412] bg-3d-gradient"
+        radius={70}
+        duration={15}
+        delay={25}
+        reverse
+      >
+        <Icon slug="tailwindcss" />
+      </OrbitingCircles>
+      <OrbitingCircles
+        className="size-[50px] border-none p-2 bg-[#141412] bg-3d-gradient"
+        radius={70}
+        duration={15}
+        delay={25}
+        reverse
+      >
+        <Icon slug="amazonaws" />
+      </OrbitingCircles>
+      <OrbitingCircles
+        className="size-[50px] border-none p-2 bg-[#141412] bg-3d-gradient"
+        radius={70}
+        duration={15}
+        delay={25}
+        reverse
+      >
+        <Icon slug="javascript" />
+      </OrbitingCircles>
+      <OrbitingCircles
+        className="size-[50px] border-none p-2 bg-[#141412] bg-3d-gradient"
+        radius={70}
+        duration={15}
+        delay={25}
+        reverse
+      >
+        <Icon slug="slack" />
       </OrbitingCircles>
     </div>
   )

@@ -5,7 +5,7 @@ import HeroImage from '../../../public/hero_image.png'
 import { SectionLayout } from '@/layouts/SectionLayout'
 import { Badge } from '@/components/ui/badge'
 import { IconSmallRocket } from '@/components/icons'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const avatarUrls = [
   'https://avatars.githubusercontent.com/u/16860528',
@@ -15,9 +15,14 @@ const avatarUrls = [
 ]
 
 const Hero = () => {
+  const router = useRouter();
 
   const handleClick = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleTestimonialClick = () => {
+    router.push('#testimonials');
   };
 
   return (
@@ -42,14 +47,14 @@ const Hero = () => {
           </p>
           <div className="flex items-center gap-6">
             <Button onClick={handleClick}>Get Started</Button>
-            <Link href="#testimonials" className="sub-text clickable-text">
+            <div  onClick={handleTestimonialClick} className="sub-text clickable-text">
               <AvatarCircles
                 className="cursor-pointer"
-                numPeople={15}
+                numPeople={17}
                 avatarUrls={avatarUrls}
               />
-            </Link>
-            <p>15 + Clients</p>
+            </div>
+           
           </div>
         </div>
         <div className="relative cursor-pointer-none">

@@ -20,7 +20,7 @@ export default function DefaultLayout() {
       className={`flex flex-col gap-8 px-6 py-6 bg-[#08070B] ${lexend.className}`}
     >
       <Navbar />
-      <SectionLayout>
+      <SectionLayout id="pricing">
         <div className="grid grid-cols-3 gap-16 w-full mt-8">
           <Card className="">
             <CardContent className="flex flex-col p-0 gap-6 text-center">
